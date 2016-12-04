@@ -1,0 +1,1796 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\renewcommand{\thesubsection}{\thesection. \alph{subsection})}
+\renewcommand{\thesubsubsection}{-}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+multicol
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+CS-E5740 - Complex Networks
+\begin_inset Newline newline
+\end_inset
+
+Exercise set 1
+\end_layout
+
+\begin_layout Author
+Hugues Verlin (584788)
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+hugues.verlin@aalto.fi
+\end_layout
+
+\begin_layout Section
+Basic network properties
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+a) The adjacency matrix A
+\end_layout
+
+\end_inset
+
+ It is a 
+\begin_inset Formula $n-by-n$
+\end_inset
+
+ boolean (or integer) matrix, (with 
+\begin_inset Formula $n$
+\end_inset
+
+, the number of nodes) where a 
+\begin_inset Formula $true$
+\end_inset
+
+ value (or a 
+\begin_inset Formula $1$
+\end_inset
+
+) at 
+\begin_inset Formula $A[i][j]$
+\end_inset
+
+ indicates an edge from node 
+\begin_inset Formula $i$
+\end_inset
+
+ to node 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+For the example, we have : 
+\begin_inset Formula 
+\[
+A=\begin{bmatrix}0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 1 & 1 & 0 & 0 & 0\\
+1 & 1 & 1 & 0 & 1 & 1 & 0 & 0\\
+0 & 0 & 1 & 1 & 0 & 1 & 0 & 0\\
+0 & 0 & 0 & 1 & 1 & 0 & 1 & 0\\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 1\\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+b) The edge density $
+\backslash
+rho$ of the graph
+\end_layout
+
+\end_inset
+
+ The edge density of a network is the fraction of edges out of all possible
+ edges.
+ This is defined as (with 
+\begin_inset Formula $n$
+\end_inset
+
+, number of nodes in the graph, and 
+\begin_inset Formula $m$
+\end_inset
+
+, number of edges in the graph):
+\begin_inset Formula 
+\[
+\rho=\frac{m}{\dbinom{n}{2}}=\frac{2m}{n\left(n-1\right)}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+For the example, we have:
+\begin_inset Formula 
+\[
+\rho=\frac{2\times9}{8\times\left(8-1\right)}\approx0.321
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+c) The degree $k_i$ of each node $i 
+\backslash
+in V$ and the degree distribution P(k)
+\end_layout
+
+\end_inset
+
+ The degree 
+\begin_inset Formula $k_{i}$
+\end_inset
+
+ of each node is the number of links that each node has.
+ In the example, we have:
+\begin_inset Formula 
+\begin{align*}
+k_{1}=1\quad k_{2}=1\quad k_{3}=2\\
+k_{4}=5\quad k_{5}=3\quad k_{6}=3\\
+k_{7}=2\quad k_{8}=1
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+The degree distribution 
+\begin_inset Formula $P\left(k\right)$
+\end_inset
+
+ is the probability that the degree of a node picked at random is 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ It is defined as: 
+\begin_inset Formula 
+\[
+P\left(k\right)=\nicefrac{n_{k}}{n}\quad\text{with }n_{k}\text{, number of nodes of degree k}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+In the example, we have: 
+\begin_inset Formula 
+\begin{align*}
+\forall j\in\{0;4\}\cup[6,+\infty[,\,\,P\left(j\right)=0 & \quad P\left(1\right)=\nicefrac{3}{8}\quad P\left(2\right)=\nicefrac{1}{4}\\
+\quad P\left(3\right)=\nicefrac{1}{4} & \quad P\left(5\right)=\nicefrac{1}{8}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+d) The mean degree $
+\backslash
+left
+\backslash
+langle k 
+\backslash
+right
+\backslash
+rangle$ of the graph
+\end_layout
+
+\end_inset
+
+ The mean degree is the average degree of the graph.
+ Hence, it is define as:
+\begin_inset Formula 
+\[
+\left\langle k\right\rangle =\frac{1}{N}\sum_{i}d_{i}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $N$
+\end_inset
+
+ is the number of vertices, and 
+\begin_inset Formula $d_{i}$
+\end_inset
+
+ is the degree of the vertice 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+In the example, we have: 
+\begin_inset Formula 
+\[
+\left\langle k\right\rangle =\frac{1}{8}\left(1+1+2+5+3+3+2+1\right)=\frac{9}{4}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+e) The diameter $d$ of the graph
+\end_layout
+
+\end_inset
+
+ The diameter 
+\begin_inset Formula $d$
+\end_inset
+
+ is the largest distance in the graph: 
+\begin_inset Formula 
+\[
+d=\text{max}_{i,j\in V}d_{i,j}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+With the example, we have:
+\begin_inset Formula 
+\[
+d=4
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+f) Clustering coefficient and average clustering coefficient
+\end_layout
+
+\end_inset
+
+ The clustering coefficient of a node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ is the quotient between the number of edge between its neighbours and the
+ number of possible edges between its neighbours.
+\begin_inset Formula 
+\[
+C_{i}=\frac{E}{\dbinom{k_{i}}{2}}=\frac{2E}{k_{i}\left(k_{i}-1\right)}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+where 
+\begin_inset Formula $E$
+\end_inset
+
+ is the number of edges between 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+'s 
+\begin_inset Formula $k$
+\end_inset
+
+ neighbours.
+ 
+\begin_inset Newline newline
+\end_inset
+
+The average clustering coefficient is then:
+\begin_inset Formula 
+\[
+\left\langle C\right\rangle =\frac{1}{n}\sum_{i}C_{i}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+In the example, we have:
+\end_layout
+
+\begin_layout Itemize
+For the clustering coefficients : 
+\begin_inset Flex Multiple Columns
+status open
+
+\begin_layout Itemize
+\begin_inset Formula $C_{1}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{2}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{3}=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{4}=\frac{2\times2}{5\left(5-1\right)}=\frac{1}{5}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{5}=\frac{2\times2}{3\left(3-1\right)}=\frac{2}{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{6}=\frac{2\times1}{3\left(3-1\right)}=\frac{1}{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{7}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C_{8}=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+For the average: 
+\begin_inset Formula $\left\langle C\right\rangle =\frac{1}{n}\sum_{i}C_{i}=\frac{1}{8}\left(1+\frac{1}{5}+\frac{2}{3}+\frac{1}{3}\right)=\frac{11}{40}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Computing network properties programmatically
+\end_layout
+
+\begin_layout Standard
+Please, see the code in the attached file.
+\end_layout
+
+\begin_layout Subsection
+Visualize the network
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename network.pdf
+	width 60col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Karate club network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Calculate the edge density
+\end_layout
+
+\begin_layout Standard
+The results are the same: 
+\end_layout
+
+\begin_layout Verbatim
+D from self-written algorithm: 0.13903743315508021
+\end_layout
+
+\begin_layout Verbatim
+D from NetworkX function: 0.13903743315508021
+\end_layout
+
+\begin_layout Subsection
+Calculate the average clustering coefficient
+\end_layout
+
+\begin_layout Standard
+The results are also the same:
+\end_layout
+
+\begin_layout Verbatim
+C from self-written algorithm: 0.5706384782076824 
+\end_layout
+
+\begin_layout Verbatim
+C from NetworkX function: 0.5706384782076822
+\end_layout
+
+\begin_layout Subsection
+Calculate the degree distribution 
+\begin_inset Formula $P(k)$
+\end_inset
+
+ and complementary cumulative degree distribution 1-CDF
+\begin_inset Formula $(k)$
+\end_inset
+
+ of the network
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename degree_distribution.pdf
+	width 60col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+degree distribution 
+\begin_inset Formula $P(k)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ccdf.pdf
+	width 60col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+complementary cumulative degree distribution 1-CDF
+\begin_inset Formula $(k)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Calculate the average shortest path length 
+\begin_inset Formula $\left\langle l\right\rangle $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here is the output of the program:
+\end_layout
+
+\begin_layout Verbatim
+<l> from NetworkX function: 2.408199643493761 
+\end_layout
+
+\begin_layout Subsection
+Create a scatter plot of 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ as a function of 
+\begin_inset Formula $k_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename degree_clustering.pdf
+	width 60col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter plot of 
+\begin_inset Formula $C_{i}$
+\end_inset
+
+ as a function of 
+\begin_inset Formula $k_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Path lengths in simple model networks
+\end_layout
+
+\begin_layout Subsection
+Ring lattice
+\end_layout
+
+\begin_layout Standard
+For a ring lattice, the diameter 
+\begin_inset Formula $d$
+\end_inset
+
+ is equal to the number of node divided by 2 as the largest distance is
+ the one from any node to diametrically opposite node.
+\begin_inset Formula 
+\[
+d_{\text{ring lattice}}=\frac{N}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Two-dimensional square lattice
+\end_layout
+
+\begin_layout Standard
+For a two dimensional square lattice, the largest distance start from a
+ corner and go to the complete opposite corner (up-left 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ bottom-right for example).
+\end_layout
+
+\begin_layout Standard
+Then, the shortest from one corner to the other is for example along the
+ side of the square.
+ Then, as 
+\begin_inset Formula $N=L^{2}$
+\end_inset
+
+, we have to travel 
+\begin_inset Formula $2\times L$
+\end_inset
+
+.
+ Therefore,
+\begin_inset Formula 
+\[
+d_{\text{square lattice}}=2\times L=2\sqrt{N}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Cayley tree
+\end_layout
+
+\begin_layout Subsubsection
+Number of nodes
+\end_layout
+
+\begin_layout Standard
+For each added layer, it splits 
+\begin_inset Formula $k$
+\end_inset
+
+ times in 
+\begin_inset Formula $\left(k-1\right)$
+\end_inset
+
+ nodes (so 
+\begin_inset Formula $k\times(k-1)^{l}$
+\end_inset
+
+), where 
+\begin_inset Formula $l$
+\end_inset
+
+ is the number of layers.
+ Thus, the number of nodes is: 
+\begin_inset Formula 
+\[
+N=\left(k-1\right)^{0}+k\left(k-1\right)^{1}+k\left(k-1\right)^{2}+\cdots+k\left(k-1\right)^{l}=1+k\sum_{i=0}^{l-1}\left(k-1\right)^{l}=1+k\left(\frac{\left(k-1\right)^{l}-1}{k-2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As we only consider 
+\emph on
+Cayley trees
+\emph default
+, with 
+\begin_inset Formula $k=3$
+\end_inset
+
+, we have:
+\begin_inset Formula 
+\[
+N=1+3\left(\frac{2^{l}-1}{2-1}\right)=1+3\left(2^{l}-1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Diameter
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $l$
+\end_inset
+
+ is strictly greater than 
+\begin_inset Formula $1,$
+\end_inset
+
+ it is very to see that the largest distance is increased by 
+\begin_inset Formula $2$
+\end_inset
+
+ each time we add a new layer to the tree.
+ It follows that:
+\begin_inset Formula 
+\[
+d=2\times l
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can then express 
+\begin_inset Formula $l$
+\end_inset
+
+ in term of 
+\begin_inset Formula $N$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+l=\log_{2}\left(\frac{N-1}{3}+1\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore,
+\begin_inset Formula 
+\[
+d_{\text{cayley tree}}=2\times\left(\log_{2}\left(\frac{N-1}{3}+1\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Analysis
+\end_layout
+
+\begin_layout Subsubsection
+If N is increased, which network’s diameter grows fastest? 
+\end_layout
+
+\begin_layout Standard
+We have 
+\begin_inset Formula 
+\begin{align*}
+\lim_{N\to+\infty}\frac{\nicefrac{N}{2}}{2\sqrt{N}}=\lim_{N\to+\infty}\sqrt{N}=+\infty\\
+\lim_{N\to+\infty}\frac{\nicefrac{N}{2}}{2\left(\log_{2}\left(\frac{N-1}{3}+1\right)\right)}=\lim_{N\to+\infty}\frac{N}{\log\left(N\right)}=+\infty
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, the network with the fastest diameter grow is the 
+\emph on
+ring lattice
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection
+And slowest?
+\end_layout
+
+\begin_layout Standard
+We also have:
+\begin_inset Formula 
+\[
+\lim_{N\to+\infty}\frac{\nicefrac{N}{2}}{2\sqrt{N}}=\lim_{n\to+\infty}\frac{\log N}{\sqrt{N}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, the slowest diameter grow belongs to the 
+\emph on
+cayley tree
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection
+Which of these networks fulfill the ‘small-world’ property?
+\end_layout
+
+\begin_layout Standard
+For the 
+\emph on
+cayley tree, 
+\emph default
+we have 
+\begin_inset Formula 
+\[
+\lim_{N\to+\infty}\frac{2\left(\log_{2}\left(\frac{N-1}{3}+1\right)\right)}{\log N}=\lim_{N\to+\infty}\frac{2\left(\log_{2}\left(N\right)-\log_{2}3\right)}{\log N}=\lim_{N\to+\infty}\frac{2\times\log\left(N\right)}{\log2\times\log N}=\frac{2}{\log2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As 
+\begin_inset Formula $\frac{2}{\log2}$
+\end_inset
+
+ is a constant, we can conclude that :
+\begin_inset Formula 
+\[
+d_{\text{cayley tree}}\left(N\right)=\Theta\left(d_{\text{small world}}\left(N\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This shows that the 
+\emph on
+cayley tree
+\emph default
+ fullfill the 
+\begin_inset Quotes eld
+\end_inset
+
+small world
+\begin_inset Quotes erd
+\end_inset
+
+ property.
+\end_layout
+
+\begin_layout Section
+Counting number of walks using the adjacency matrix
+\end_layout
+
+\begin_layout Subsection
+Draw the induced subgraph 
+\begin_inset Formula $G^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename graphs/g_start.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Induced graph 
+\begin_inset Formula $G^{*}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Compute the number walks of length 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset Flex Multiple Columns
+status open
+
+\begin_layout Itemize
+\begin_inset Formula $1$
+\end_inset
+
+ to 
+\begin_inset Formula $1$
+\end_inset
+
+: 1
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $1$
+\end_inset
+
+ to 
+\begin_inset Formula $2$
+\end_inset
+
+: 
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $1$
+\end_inset
+
+ to 
+\begin_inset Formula $3$
+\end_inset
+
+: 
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $1$
+\end_inset
+
+ to 
+\begin_inset Formula $4$
+\end_inset
+
+: 
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $2$
+\end_inset
+
+ to 
+\begin_inset Formula $2$
+\end_inset
+
+: 1
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $2$
+\end_inset
+
+ to 
+\begin_inset Formula $3$
+\end_inset
+
+: 
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $2$
+\end_inset
+
+ to 
+\begin_inset Formula $4$
+\end_inset
+
+: 
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $3$
+\end_inset
+
+ to 
+\begin_inset Formula $3$
+\end_inset
+
+: 1
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $3$
+\end_inset
+
+ to 
+\begin_inset Formula $4$
+\end_inset
+
+: 
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $4$
+\end_inset
+
+ to 
+\begin_inset Formula $4$
+\end_inset
+
+: 
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Compute the matrix 
+\begin_inset Formula $A^{2}$
+\end_inset
+
+, what can you notice?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\begin{bmatrix}0 & 0 & 0 & 1\\
+0 & 0 & 0 & 1\\
+0 & 0 & 0 & 1\\
+1 & 1 & 1 & 0
+\end{bmatrix}\qquad A^{2}=\begin{bmatrix}1 & 1 & 1 & 0\\
+1 & 1 & 1 & 0\\
+1 & 1 & 1 & 0\\
+0 & 0 & 0 & 3
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can notice that the numbers of walks are similar to the numbers in the
+ matrice.
+ For example, we have 
+\begin_inset Formula $1\to2=1$
+\end_inset
+
+ and 
+\begin_inset Formula $A_{1,2}^{2}=1$
+\end_inset
+
+ or 
+\begin_inset Formula $1\to4=0$
+\end_inset
+
+ and 
+\begin_inset Formula $A_{1,4}^{2}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Compute the number of walks of length three from node 3 to node 4 in 
+\begin_inset Formula $G^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From node 
+\begin_inset Formula $3$
+\end_inset
+
+ to node 
+\begin_inset Formula $4$
+\end_inset
+
+, there is 
+\begin_inset Formula $3$
+\end_inset
+
+ walks.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+A_{3,4}^{3} & =A_{3,1}\times A_{1,4}^{2}+A_{3,2}\times A_{4,2}^{2}+A_{3,3}\times A_{4,3}^{2}+A_{3,4}\times A_{4,4}^{2}\\
+A_{3,4}^{3} & =0\times1+0\times1+0\times1+1\times3
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We get the same number using both ways.
+\end_layout
+
+\begin_layout Subsection
+Show that the element 
+\begin_inset Formula $A_{i,j}^{m}$
+\end_inset
+
+, 
+\begin_inset Formula $m\in N$
+\end_inset
+
+ corresponds to the number of walks of length 
+\begin_inset Formula $m$
+\end_inset
+
+ between nodes 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Proof by induction:
+\end_layout
+
+\begin_layout Itemize
+Let's consider the case 
+\begin_inset Formula $m=1$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $A_{i,j}$
+\end_inset
+
+ indicates if there is a path between node 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ Therefore, it corresponds to the number of walk of length 
+\begin_inset Formula $m=1$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Let's now suppose that the property is true for all 
+\begin_inset Formula $m=n$
+\end_inset
+
+, 
+\begin_inset Formula $n\in N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Using the hypothesis, we know that 
+\begin_inset Formula $a_{ij}^{(m)}$
+\end_inset
+
+ — the 
+\begin_inset Formula $ij:th$
+\end_inset
+
+ entry of 
+\begin_inset Formula $A^{m}$
+\end_inset
+
+ — is the number of walks of length 
+\begin_inset Formula $m$
+\end_inset
+
+ from any node 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ to 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ .
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By definition, we have 
+\begin_inset Formula $a_{ij}^{(m+1)}$
+\end_inset
+
+= 
+\begin_inset Formula $a_{i1}a_{1j}^{(m)}+a_{i2}a_{2j}^{(m)}+\cdots+a_{in}a_{2n}^{(m)}=\sum_{m=1}^{n}a_{im}b_{mj}$
+\end_inset
+
+ .
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Then:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $a_{i1}a_{1j}^{(m)}$
+\end_inset
+
+ is equal to the number of walks of length 
+\begin_inset Formula $m$
+\end_inset
+
+ from 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+ to 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ times the number of walks of length 1 from 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ to 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+.
+ It is also the number of walks of length 
+\begin_inset Formula $m+1$
+\end_inset
+
+ from 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ to 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ , where 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+ is the second vertex.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This argument holds for each 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+.
+ Indeed, 
+\begin_inset Formula $a_{it}a_{tj}^{(m)}$
+\end_inset
+
+ is the number of walks from 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ to 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ in which 
+\begin_inset Formula $v_{k}$
+\end_inset
+
+ is the second vertex.
+ Therefore, the sum is the number of all possible walks from 
+\begin_inset Formula $v_{i}$
+\end_inset
+
+ to 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\square$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+Bipartite networks
+\end_layout
+
+\begin_layout Subsection
+Construct the two unipartite projections of the network
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename graphs/movies.pdf
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename graphs/actors.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Movies and actors unipartite graphs
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Show that, in general, it is not possible to uniquely reconstruct a bipartite
+ network from its two unipartite projections
+\end_layout
+
+\begin_layout Standard
+Here is a counter example constructed from the two unipartite graphs: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename graphs/bipartite.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Counter example — other bipartite network built from the two unipartite
+ graphs
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ensemble averages by enumeration
+\end_layout
+
+\begin_layout Subsection
+Calculate, using pen and paper, 
+\begin_inset Formula $\left\langle k\right\rangle $
+\end_inset
+
+, 
+\begin_inset Formula $\left\langle C\right\rangle $
+\end_inset
+
+, and 
+\begin_inset Formula $\left\langle d^{*}\right\rangle $
+\end_inset
+
+ for 
+\begin_inset Formula $G(N=3,p=1/3)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $N=3$
+\end_inset
+
+, we have 
+\begin_inset Formula $8$
+\end_inset
+
+ possible graphs: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Flex Multiple Columns
+status open
+
+\begin_layout Itemize
+1 graph with no links 
+\end_layout
+
+\begin_layout Itemize
+3 graphs with 1 link
+\end_layout
+
+\begin_layout Itemize
+3 graphs with 2 links
+\end_layout
+
+\begin_layout Itemize
+1 graph with 3 links
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left\langle k\right\rangle  & =\sum_{i=0}^{3}\pi_{i}k\left(G_{i}\right)\\
+ & =\left(1-\frac{1}{3}\right)^{3}k\left(G_{0}\right)+3\times\frac{1}{3}\times\left(1-\frac{1}{3}\right)^{2}k\left(G_{1}\right)+3\times\left(\frac{1}{3}\right)^{2}\times\left(1-\frac{1}{3}\right)\times k\left(G_{2}\right)+\left(\frac{1}{3}\right)^{3}k\left(G_{3}\right)\\
+ & =\frac{8}{27}\times0+3\times\frac{4}{27}\times\frac{2}{3}+3\times\frac{2}{27}\times\frac{4}{3}+\frac{1}{27}\times\frac{6}{3}\\
+ & =\frac{2}{3}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left\langle C\right\rangle  & =\sum_{i=0}^{3}\pi_{i}C\left(G_{i}\right)\\
+ & =\frac{8}{27}\times C\left(G_{0}\right)+\frac{12}{27}\times C\left(G_{1}\right)+\frac{6}{27}\times C\left(G_{2}\right)+\frac{1}{27}\times C\left(G_{3}\right)\\
+ & =0+0+0+1\times\frac{1}{27}\\
+ & =\frac{1}{27}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left\langle d^{*}\right\rangle  & =\sum_{i=0}^{3}\pi_{i}d^{*}\left(G_{i}\right)\\
+ & =\frac{8}{27}\times d^{*}\left(G_{0}\right)+\frac{12}{27}\times d^{*}\left(G_{1}\right)+\frac{6}{27}\times d^{*}\left(G_{2}\right)+\frac{1}{27}\times d^{*}\left(G_{3}\right)\\
+ & =0+\frac{12}{27}\times1+\frac{6}{27}\times2+\frac{1}{27}\times2\\
+ & =\frac{25}{27}\approx0,9259
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Calculate, using pen and paper, 
+\begin_inset Formula $\left\langle k\right\rangle $
+\end_inset
+
+, 
+\begin_inset Formula $\left\langle C\right\rangle $
+\end_inset
+
+, and 
+\begin_inset Formula $\left\langle d^{*}\right\rangle $
+\end_inset
+
+ for 
+\begin_inset Formula $G(N=3,p)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left\langle k\right\rangle  & =\sum_{i=0}^{3}\pi_{i}k\left(G_{i}\right)\\
+ & =\left(1-p\right)^{3}k\left(G_{0}\right)+3p\left(1-p\right)^{2}k\left(G_{1}\right)+3p^{2}\left(1-p\right)k\left(G_{2}\right)+p^{3}k\left(G_{3}\right)\\
+ & =2p
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left\langle C\right\rangle  & =\sum_{i=0}^{3}\pi_{i}C\left(G_{i}\right)\\
+ & =\left(1-p\right)^{3}C\left(G_{0}\right)+3p\left(1-p\right)^{2}C\left(G_{1}\right)+3p^{2}\left(1-p\right)C\left(G_{2}\right)+p^{3}C\left(G_{3}\right)\\
+ & =p^{3}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left\langle d^{*}\right\rangle  & =\sum_{i=0}^{3}\pi_{i}d^{*}\left(G_{i}\right)\\
+ & =\left(1-p\right)^{3}d^{*}\left(G_{0}\right)+3p\left(1-p\right)^{2}d^{*}\left(G_{1}\right)+3p^{2}\left(1-p\right)d^{*}\left(G_{2}\right)+p^{3}d^{*}\left(G_{3}\right)\\
+ & =-2p^{3}+3p
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
