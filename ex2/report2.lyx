@@ -1,0 +1,987 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\renewcommand{\thesubsection}{\thesection. \alph{subsection})}
+\renewcommand{\thesubsubsection}{-}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+multicol
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+CS-E5740 - Complex Networks
+\begin_inset Newline newline
+\end_inset
+
+Exercise set 2
+\end_layout
+
+\begin_layout Author
+Hugues Verlin (584788)
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+hugues.verlin@aalto.fi
+\end_layout
+
+\begin_layout Section
+Properties of Erdős-Rényi networks
+\end_layout
+
+\begin_layout Subsection
+Explain in detail the origin of each of the three factors in the degree
+ distribution 
+\begin_inset Formula $P(k)$
+\end_inset
+
+ of E-R networks formula
+\end_layout
+
+\begin_layout Standard
+Each node’s number of links comes from 
+\begin_inset Formula $N-1$
+\end_inset
+
+ independent trials with probability 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $p^{k}$
+\end_inset
+
+ : 
+\begin_inset Formula $k$
+\end_inset
+
+ links occur with probability 
+\begin_inset Formula $p^{k}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\left(1-p\right)^{\left(N-1\right)-k}$
+\end_inset
+
+ : 
+\begin_inset Formula $\left(N−1\right)-k$
+\end_inset
+
+ failures occur with probability 
+\begin_inset Formula $(1−p)^{N−k}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\dbinom{\left(N-1\right)}{k}$
+\end_inset
+
+ number of different ways of distributing 
+\begin_inset Formula $k$
+\end_inset
+
+ successes in a sequence of 
+\begin_inset Formula $\left(N-1\right)$
+\end_inset
+
+ trials.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Motivate why in E-R networks, the average clustering coefficient 
+\begin_inset Formula $C$
+\end_inset
+
+ equals 
+\begin_inset Formula $p$
+\end_inset
+
+ (on expectation).
+\end_layout
+
+\begin_layout Standard
+The clustering coefficient of a node is the probability that two randomly
+ selected neighbors of the node are neighbors themselves.
+ In the E-R network, the propability that an edge is present between two
+ nodes is 
+\begin_inset Formula $p$
+\end_inset
+
+ by definition.
+ Therefore, the clustering coefficient is on average equal to 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Explain, what happens to 
+\begin_inset Formula $C$
+\end_inset
+
+, if 
+\begin_inset Formula $N\to∞$
+\end_inset
+
+ with 
+\begin_inset Formula $\left\langle k\right\rangle $
+\end_inset
+
+ bounded.
+\end_layout
+
+\begin_layout Standard
+The average clustering coefficient becomes very small, indeed
+\begin_inset Formula 
+\[
+C=p=\frac{\left\langle k\right\rangle }{N-1}\xrightarrow{N\to\infty}0,\quad\text{as }\left\langle k\right\rangle \text{ is bounded}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Figures
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/fig1.pdf
+	width 80col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/fig1_2.pdf
+	width 80col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Size of the largest and second largest component in an E-R network of size
+ 
+\begin_inset Formula $N=10^{4}$
+\end_inset
+
+ against 
+\begin_inset Formula $\left\langle k\right\rangle $
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Averages for ER networks
+\end_layout
+
+\begin_layout Subsubsection
+For 
+\begin_inset Formula $N=3$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/_N=3_avg_cls.pdf
+	width 40theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/_N=3_avg_d.pdf
+	width 40theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/_N=3_avg_deg.pdf
+	width 40theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average against the probability of link in a ER-network of size 
+\begin_inset Formula $N=3$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+(Analytical solution plotted in red)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+For 
+\begin_inset Formula $N=100$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/_N=100_avg_cls.pdf
+	width 40theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/_N=100_avg_d.pdf
+	width 40theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/_N=100_avg_deg.pdf
+	width 40theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average against the probability of link in a ER-network of size 
+\begin_inset Formula $N=100$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Explain the benefits and downsides of this method as compared to the analytical
+ method
+\end_layout
+
+\begin_layout Itemize
+This method allows us to have a real behavior of the network, and to get
+ the laws for multiple values of 
+\begin_inset Formula $N$
+\end_inset
+
+ quickly.
+\end_layout
+
+\begin_layout Itemize
+The analatycal method allows us to get the real result instead of an approximati
+on.
+\end_layout
+
+\begin_layout Section
+Implementing the Watts-Strogatz small-world model
+\end_layout
+
+\begin_layout Subsection
+Watts-strogatz visualizations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/watts_strogatz_15_0.0.pdf
+	width 40theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Watts-strogatz using 
+\begin_inset Formula $N=15,$
+\end_inset
+
+ 
+\begin_inset Formula $m=2$
+\end_inset
+
+ and 
+\begin_inset Formula $p=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/watts_strogatz_15_0.5.pdf
+	width 40theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Watts-strogatz using 
+\begin_inset Formula $N=15,$
+\end_inset
+
+ 
+\begin_inset Formula $m=2$
+\end_inset
+
+ and 
+\begin_inset Formula $p=0.5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Relative averages
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/fig4.pdf
+	width 40theight%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Relative averages in a Watts-strogatz network using 
+\begin_inset Formula $N=1000$
+\end_inset
+
+, 
+\begin_inset Formula $m=5$
+\end_inset
+
+ and 
+\begin_inset Formula $p\in[0.001,0.512]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Implementing the Barabási-Albert (BA) model
+\end_layout
+
+\begin_layout Subsection
+Implement a Python function for generating Barabási-Albert networks
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/barabasi_albert.pdf
+	width 80col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Barabási-Albert 
+\begin_inset Formula $N=200$
+\end_inset
+
+ and 
+\begin_inset Formula $m=1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Plot both the experimental and theoretical distributions to the same axes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/degree_distribution.pdf
+	width 80col%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Degree distribution of the Barabási-Albert model for 
+\begin_inset Formula $N=10\,000$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+By reading from the plot of the experimental degree distribution, estimate
+ the probability for a randomly picked node to have a degree value between
+ 10 and 20
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename prog/graphs/area.png
+	width 36pheight%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By reading the plot, the probability for a random node to have a degree
+ between 10 and 20 is the area of the red surface on the picture.
+ Hence, 
+\begin_inset Formula 
+\begin{align*}
+p\left(d_{i}\in[10;20]\right) & =3\times2.10^{-2}+7\times10^{-3}\\
+ & =0.067
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Deriving the degree distribution for the BA-model
+\end_layout
+
+\begin_layout Subsection
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Pi_{i}=\frac{k_{i}}{\sum_{j=1}^{N}k_{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can see that 
+\begin_inset Formula 
+\[
+\sum_{j=1}^{N}k_{j}=2mN
+\]
+
+\end_inset
+
+If we consider that 
+\begin_inset Formula $N_{0}\thickapprox0$
+\end_inset
+
+, and because every new vertex added has degree 
+\begin_inset Formula $m$
+\end_inset
+
+ and every other vertex linked to the new node has its degree increased
+ by one.
+\begin_inset Newline newline
+\end_inset
+
+Then, we have:
+\begin_inset Formula 
+\[
+\Pi\left(k\right)=Np_{k,N}\times\Pi_{i}=\frac{N\times k_{i}\times p_{k,N}}{2mN}=\frac{k_{i}p_{k,N}}{2m}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The number of degree 
+\begin_inset Formula $k$
+\end_inset
+
+ nodes that acquire a new link and turn into 
+\begin_inset Formula $(k+1)$
+\end_inset
+
+ degree nodes is:
+\begin_inset Formula 
+\[
+n_{k}^{-}=\frac{k}{2}p_{k,N}
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+The number of degree 
+\begin_inset Formula $(k-1)$
+\end_inset
+
+ nodes that acquire a new link, increasing their degree to 
+\begin_inset Formula $k$
+\end_inset
+
+ is:
+\begin_inset Formula 
+\[
+n_{k}^{+}=\frac{k-1}{2}p_{k-1,N}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus, for all 
+\begin_inset Formula $k>m$
+\end_inset
+
+, we get:
+\begin_inset Formula 
+\begin{align*}
+\left(N+1\right)p_{k,N+1}-Np_{k,N} & =n_{k}^{+}-n_{k}^{-}\\
+ & =\frac{k-1}{2}p_{k-1,N}-\frac{k}{2}p_{k,N}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and for 
+\begin_inset Formula $k=m$
+\end_inset
+
+, we now have:
+\begin_inset Formula 
+\begin{align*}
+\left(N+1\right)p_{m,N+1}-Np_{m,N} & =n_{m}^{+}-n_{m}^{-}\\
+ & =1-\frac{m}{2}p_{m,N}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+as 
+\begin_inset Formula $n_{m}^{+}=1$
+\end_inset
+
+.
+ (Only one node has degree 
+\begin_inset Formula $m$
+\end_inset
+
+, the one that is added to the network).
+\end_layout
+
+\begin_layout Subsection
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can now let the network grows towards the infinite network size limit.
+ Then let's consider stationary solutions of the two equations:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(N+1\right)p_{k,N+1}-Np_{k,N}\to Np_{k}+p_{k}-Np_{k}=p_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(N+1\right)p_{m,N+1}-Np_{m,N}\to p_{m}
+\]
+
+\end_inset
+
+Thus, 
+\begin_inset Formula 
+\[
+p_{k}=\frac{k-1}{k+2}p_{k-1}\quad k>m
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+p_{m}=\frac{2}{m+2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have:
+\begin_inset Formula 
+\begin{align*}
+p_{m+1} & =\frac{m}{m+3}p_{m}=\frac{2m}{\left(m+2\right)\left(m+3\right)}\\
+p_{m+2} & =\frac{m}{m+4}p_{m+1}=\frac{m}{m+4}\frac{2m}{\left(m+2\right)\left(m+3\right)}=\frac{2m\left(m+1\right)}{\left(m+2\right)\left(m+3\right)\left(m+4\right)}\\
+p_{m+3} & =\frac{m+2}{m+5}p_{m+2}=\frac{\cancelto{}{m+2}}{m+5}\frac{2m\left(m+1\right)}{\cancelto{}{\left(m+2\right)}\left(m+3\right)\left(m+4\right)}=\frac{2m\left(m+1\right)}{\left(m+3\right)\left(m+4\right)\left(m+5\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+We can see that there is a recursive pattern that will happen at this point.
+ We can replace the denomerator 
+\begin_inset Formula $m+3$
+\end_inset
+
+ with 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ This gives us the equation we were looking for:
+\begin_inset Formula 
+\[
+p_{k}=\frac{2m\left(m+1\right)}{k\left(k+1\right)\left(k+2\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
