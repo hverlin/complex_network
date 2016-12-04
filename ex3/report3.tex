@@ -1,0 +1,370 @@
+%% LyX 2.2.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\renewcommand{\thesubsection}{\thesection. \alph{subsection})}
+\renewcommand{\thesubsubsection}{-}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{CS-E5740 - Complex Networks\\
+Exercise set 3}
+
+\author{Hugues Verlin (584788)\\
+\texttt{hugues.verlin@aalto.fi}}
+\maketitle
+
+\section{Degree correlations and assortativity}
+
+\subsection{Create a scatter plot of the degrees of nodes incident to each edge}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/scatter_fb}
+\par\end{centering}
+\caption{Scatter plot - facebook}
+\end{figure}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/scatterkarate_club_network}
+\par\end{centering}
+\caption{Scatter plot - karate club}
+\end{figure}
+
+
+\subsection{Heat Map}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{\string"ex3/graphs/heatmapfacebook wosn\string".pdf}
+\par\end{centering}
+\caption{Scatter plot - facebook}
+\end{figure}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/heatmapkarate_club_network}
+\par\end{centering}
+\caption{Scatter plot - karate club}
+\end{figure}
+
+
+\subsection{Assortativity coefficient}
+
+\subsubsection{Results:}
+
+\paragraph{Facebook}
+\begin{verbatim}
+Own assortativity for facebook wosn: 0.0559847847659
+NetworkX assortativity for facebook wosn: 0.0559847847659
+\end{verbatim}
+
+\paragraph{Karate Club}
+\begin{verbatim}
+Own assortativity for karate club network: -0.475613097685
+NetworkX assortativity for karate club network: -0.475613097685
+\end{verbatim}
+\selectlanguage{english}%
+
+\subsubsection{Comments:}
+
+\inputencoding{latin1}In general, the assortitive value is higher
+for graph that are social network. The karate club network is not
+a social friendship, thus it has a low assortative value. 
+
+The Facebook network has still a not high value, but it could be explain
+by the fact that Facebook is not a real social graph, as you can have
+way more friends on Facebook than in the real life.
+\selectlanguage{english}%
+
+\subsection{scatter plot of $k_{nn}$ as a function of $k$}
+
+\inputencoding{latin9}\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{\string"ex3/graphs/nearest_neighborsfacebook wosn\string".pdf}
+\par\end{centering}
+\caption{Scatter plot - facebook}
+\end{figure}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/nearest_neighborskarate_club_network}
+\par\end{centering}
+\caption{Scatter plot - karate club}
+\end{figure}
+
+
+\section{Centrality measures for undirected networks}
+
+\subsection{Centrality measures}
+
+\subsubsection{Degree}
+\begin{itemize}
+\item $k(A)=2$
+\item $k\left(B\right)=3$
+\item $k\left(C\right)=4$
+\item $k\left(D\right)=1$
+\item $k\left(E\right)=2$
+\end{itemize}
+
+\subsubsection{Betweenness centrality}
+
+\begin{align*}
+\text{bc}(a) & =\frac{1}{\left(N-1\right)\left(N-2\right)}\sum_{s\neq a}\sum_{t\neq a}\frac{\sigma_{sat}}{\sigma_{st}}\\
+ & =\frac{1}{\left(5-1\right)\left(5-2\right)}\times0=0
+\end{align*}
+
+\begin{align*}
+\text{bc}(b) & =\frac{1}{12}\left(\frac{1}{2}\right)=\frac{1}{24}
+\end{align*}
+
+\begin{align*}
+\text{bc}(c) & =\frac{1}{12}\left(1+1+1+\frac{1}{2}\right)=\frac{7}{24}
+\end{align*}
+
+\begin{align*}
+\text{bc}(d) & =\frac{1}{12}\left(0\right)=0
+\end{align*}
+
+\begin{align*}
+\text{bc}(e) & =\frac{1}{12}\left(0\right)=0
+\end{align*}
+
+
+\subsubsection{Closeness centrality $C(i)$}
+\begin{itemize}
+\item $C\left(A\right)=\frac{5-1}{1+1++2+2}=\frac{2}{3}$
+\item $C\left(B\right)=\frac{4}{1+1+1+2}=\frac{4}{5}$
+\item $C\left(C\right)=\frac{4}{4}=1$
+\item $C\left(D\right)=\frac{4}{1+2+2+2}=\frac{4}{7}$
+\item $C\left(E\right)=\frac{4}{1+1+2+2}=\frac{2}{3}$
+\end{itemize}
+
+\subsubsection{K-shell $k_{s}(i)$}
+\begin{itemize}
+\item 1-shell = {[}A, B, C, D, E{]}
+\item 2-shell = {[}A, B, C, E{]}
+\end{itemize}
+
+\subsection{Centrality measures}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/centrality/_small_cayley_tree}
+\par\end{centering}
+\caption{Cayley tree}
+\end{figure}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/centrality/_lattice}
+\par\end{centering}
+\caption{lattice}
+\end{figure}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/centrality/_small_ring}
+\par\end{centering}
+\caption{Ring}
+\end{figure}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/centrality/_karate_club_network}
+\par\end{centering}
+\caption{Karate club network}
+\end{figure}
+
+
+\subsection{Visualizations}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/centrality/_networks_small_cayley_tree}
+\par\end{centering}
+\caption{Cayley tree}
+\end{figure}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/centrality/_networks_lattice}
+\par\end{centering}
+\caption{lattice}
+\end{figure}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/centrality/_networks_small_ring}
+\par\end{centering}
+\caption{Ring}
+\end{figure}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/centrality/_networks_karate_club_network}
+\par\end{centering}
+\caption{Karate club network}
+\end{figure}
+
+
+\section{PageRank (directed network)}
+
+\subsection{Display the network}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{\string"ex3/graphs/page_rank/graphs_uncolored (copy)\string".pdf}
+\par\end{centering}
+\caption{page rank - test network}
+\end{figure}
+
+
+\subsection{Naive PageRank}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/page_rank/colored_graph}
+\par\end{centering}
+\caption{naive page rank - $d=0.85$ $N_{\text{steps}}=10\,000$ on the test
+network}
+\end{figure}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/page_rank/check_sanity_random}
+\par\end{centering}
+\caption{naive page rank - $d=0.85$ $N_{\text{steps}}=10\,000$ on the test
+network}
+\end{figure}
+
+
+\subsection{Power iterations PageRank}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/page_rank/power_iterations}
+\par\end{centering}
+\caption{power iteration page rank - $d=0.85$ $N_{\text{steps}}=10\,000$
+on the test network}
+\end{figure}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/page_rank/check_sanity}
+\par\end{centering}
+\caption{power iteration page rank - $d=0.85$ $N_{\text{steps}}=10\,000$
+on the test network}
+\end{figure}
+
+
+\subsection{Estimating PageRank computation time}
+\begin{verbatim}
+power iteration (k5 size = 10 ** 3) = 0.7829688139972859 
+random walker (k5 size = 10**3) = 92.53090116499516
+
+\end{verbatim}
+\selectlanguage{english}%
+Then, it we assume that the computation time is linear with respect
+to the size of the network, then power iteration should take 20~357.18
+secondes ($\sim5$hours) on the full network. The random walk would
+take $\sim668.27$ hours.
+
+\subsection{How the network\textquoteright s structure relates to PageRank}
+
+\subsubsection{What is the connection between degree k or in-degree k in and PageRank?}
+
+The degree seems more or less correlated with the page rank. A high
+in-degree node has a good probability to yield a good page rank.
+
+\subsubsection{How does PageRank change if the node belongs to a strongly connected
+component?}
+
+The page rank improves if the node belongs to a strongly connected
+component because it is more likely that the walker will stay in the
+component.
+
+\subsubsection{How could this information be used in improving the power iteration
+algorithm given in part c)?}
+
+We could use this value to provide a better values for the starting
+point of the algorithm. We should take the degree into account, thus
+it could converge faster.
+
+\subsection{Dampling factor}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[width=0.6\paperwidth]{ex3/graphs/page_rank/d_effect}
+\par\end{centering}
+\caption{Comparaison of different dampling factor}
+\end{figure}
+
+
+\subsubsection{How does the change of d affect the rank of the nodes and the absolute
+PageRank values?}
+
+The dampling factor $d$ seems to influence the contrast between high
+rankgpage node value and low rankpage node value. If it too small,
+then we cannot see very weel how the node of each node is with respect
+to the others. If it is too high, then the high page rank value is
+kind of ``too saturated'', so you can not make a difference any
+more..
+
+\subsection{Page rank wikipedia}
+
+\paragraph{Results}
+\begin{itemize}
+\item Highest PageRank:
+\begin{itemize}
+\item 0.03519319071432259 : Graph\_theory
+\item 0.020361350619844686 : Social\_network
+\item 0.01677151139830182 : Mathematics
+\item 0.01646208363207607 : Social\_network\_analysis
+\item 0.014703296264824407 : Social\_networking\_service
+\end{itemize}
+\item Highest In-degree:
+\begin{itemize}
+\item 82 : Social\_network
+\item 73 : Social\_network\_analysis
+\item 63 : Small\_world\_experiment
+\item 62 : Social\_networking\_service
+\item 62 : Orkut
+\end{itemize}
+\item Highest Out-degree:
+\begin{itemize}
+\item 140 : Network\_science
+\item 82 : Social\_network
+\item 73 : Social\_network\_analysis
+\item 67 : Small-world\_network
+\item 65 : Sexual\_network
+\end{itemize}
+\end{itemize}
+
+\paragraph{Comment the differences and similarities between the three lists
+of most central pages}
+\begin{itemize}
+\item ``Graph therory'' and ``Mathematics'' have a high page rank, but
+they suprisingly don't have belong to the tops highest in-degree.
+For example, ``social network'' is in the top three each time.
+\item ``Network science'' lead to many pages, but not there are not a
+lot of pages that link back to it.
+\item ``social network'' and ``social network analysis'' have both correlated
+subject, that's why they have a good ranking as it can improve this
+way.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,1364 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\renewcommand{\thesubsection}{\thesection. \alph{subsection})}
+\renewcommand{\thesubsubsection}{-}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+multicol
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+CS-E5740 - Complex Networks
+\begin_inset Newline newline
+\end_inset
+
+Exercise set 3
+\end_layout
+
+\begin_layout Author
+Hugues Verlin (584788)
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+hugues.verlin@aalto.fi
+\end_layout
+
+\begin_layout Section
+Degree correlations and assortativity
+\end_layout
+
+\begin_layout Subsection
+Create a scatter plot of the degrees of nodes incident to each edge
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/scatter_fb.png
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter plot - facebook
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/scatterkarate_club_network.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter plot - karate club
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Heat Map
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/heatmapfacebook wosn.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter plot - facebook
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/heatmapkarate_club_network.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter plot - karate club
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Assortativity coefficient
+\end_layout
+
+\begin_layout Subsubsection
+Results:
+\end_layout
+
+\begin_layout Paragraph
+Facebook
+\end_layout
+
+\begin_layout Verbatim
+
+Own assortativity for facebook wosn: 0.0559847847659
+\end_layout
+
+\begin_layout Verbatim
+
+NetworkX assortativity for facebook wosn: 0.0559847847659
+\end_layout
+
+\begin_layout Paragraph
+
+Karate Club
+\end_layout
+
+\begin_layout Verbatim
+
+Own assortativity for karate club network: -0.475613097685
+\end_layout
+
+\begin_layout Verbatim
+
+NetworkX assortativity for karate club network: -0.475613097685
+\end_layout
+
+\begin_layout Subsubsection
+Comments:
+\end_layout
+
+\begin_layout Standard
+
+In general, the assortitive value is higher for graph that are social network.
+ The karate club network is not a social friendship, thus it has a low assortati
+ve value.
+ 
+\end_layout
+
+\begin_layout Standard
+
+The Facebook network has still a not high value, but it could be explain
+ by the fact that Facebook is not a real social graph, as you can have way
+ more friends on Facebook than in the real life.
+\end_layout
+
+\begin_layout Subsection
+scatter plot of 
+\begin_inset Formula $k_{nn}$
+\end_inset
+
+ as a function of 
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/nearest_neighborsfacebook wosn.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter plot - facebook
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/nearest_neighborskarate_club_network.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Scatter plot - karate club
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Centrality measures for undirected networks
+\end_layout
+
+\begin_layout Subsection
+Centrality measures
+\end_layout
+
+\begin_layout Subsubsection
+Degree
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $k(A)=2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $k\left(B\right)=3$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $k\left(C\right)=4$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $k\left(D\right)=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $k\left(E\right)=2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Betweenness centrality
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\text{bc}(a) & =\frac{1}{\left(N-1\right)\left(N-2\right)}\sum_{s\neq a}\sum_{t\neq a}\frac{\sigma_{sat}}{\sigma_{st}}\\
+ & =\frac{1}{\left(5-1\right)\left(5-2\right)}\times0=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\text{bc}(b) & =\frac{1}{12}\left(\frac{1}{2}\right)=\frac{1}{24}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\text{bc}(c) & =\frac{1}{12}\left(1+1+1+\frac{1}{2}\right)=\frac{7}{24}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\text{bc}(d) & =\frac{1}{12}\left(0\right)=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\text{bc}(e) & =\frac{1}{12}\left(0\right)=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Closeness centrality 
+\begin_inset Formula $C(i)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C\left(A\right)=\frac{5-1}{1+1++2+2}=\frac{2}{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C\left(B\right)=\frac{4}{1+1+1+2}=\frac{4}{5}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C\left(C\right)=\frac{4}{4}=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C\left(D\right)=\frac{4}{1+2+2+2}=\frac{4}{7}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $C\left(E\right)=\frac{4}{1+1+2+2}=\frac{2}{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+K-shell 
+\begin_inset Formula $k_{s}(i)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+1-shell = [A, B, C, D, E]
+\end_layout
+
+\begin_layout Itemize
+2-shell = [A, B, C, E]
+\end_layout
+
+\begin_layout Subsection
+Centrality measures
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/centrality/_small_cayley_tree.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cayley tree
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/centrality/_lattice.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+lattice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/centrality/_small_ring.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ring
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/centrality/_karate_club_network.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Karate club network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Visualizations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/centrality/_networks_small_cayley_tree.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cayley tree
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/centrality/_networks_lattice.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+lattice
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/centrality/_networks_small_ring.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ring
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/centrality/_networks_karate_club_network.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Karate club network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+PageRank (directed network)
+\end_layout
+
+\begin_layout Subsection
+Display the network
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/page_rank/graphs_uncolored (copy).pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+page rank - test network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Naive PageRank
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/page_rank/colored_graph.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+naive page rank - 
+\begin_inset Formula $d=0.85$
+\end_inset
+
+ 
+\begin_inset Formula $N_{\text{steps}}=10\,000$
+\end_inset
+
+ on the test network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/page_rank/check_sanity_random.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+naive page rank - 
+\begin_inset Formula $d=0.85$
+\end_inset
+
+ 
+\begin_inset Formula $N_{\text{steps}}=10\,000$
+\end_inset
+
+ on the test network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Power iterations PageRank
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/page_rank/power_iterations.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+power iteration page rank - 
+\begin_inset Formula $d=0.85$
+\end_inset
+
+ 
+\begin_inset Formula $N_{\text{steps}}=10\,000$
+\end_inset
+
+ on the test network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/page_rank/check_sanity.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+power iteration page rank - 
+\begin_inset Formula $d=0.85$
+\end_inset
+
+ 
+\begin_inset Formula $N_{\text{steps}}=10\,000$
+\end_inset
+
+ on the test network
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Estimating PageRank computation time
+\end_layout
+
+\begin_layout Verbatim
+
+power iteration (k5 size = 10 ** 3) = 0.7829688139972859 
+\end_layout
+
+\begin_layout Verbatim
+
+random walker (k5 size = 10**3) = 92.53090116499516
+\end_layout
+
+\begin_layout Verbatim
+
+\end_layout
+
+\begin_layout Standard
+Then, it we assume that the computation time is linear with respect to the
+ size of the network, then power iteration should take 20
+\begin_inset space ~
+\end_inset
+
+357.18 secondes (
+\begin_inset Formula $\sim5$
+\end_inset
+
+hours) on the full network.
+ The random walk would take 
+\begin_inset Formula $\sim668.27$
+\end_inset
+
+ hours.
+\end_layout
+
+\begin_layout Subsection
+How the network’s structure relates to PageRank
+\end_layout
+
+\begin_layout Subsubsection
+What is the connection between degree k or in-degree k in and PageRank?
+\end_layout
+
+\begin_layout Standard
+The degree seems more or less correlated with the page rank.
+ A high in-degree node has a good probability to yield a good page rank.
+\end_layout
+
+\begin_layout Subsubsection
+How does PageRank change if the node belongs to a strongly connected component?
+\end_layout
+
+\begin_layout Standard
+The page rank improves if the node belongs to a strongly connected component
+ because it is more likely that the walker will stay in the component.
+\end_layout
+
+\begin_layout Subsubsection
+How could this information be used in improving the power iteration algorithm
+ given in part c)?
+\end_layout
+
+\begin_layout Standard
+We could use this value to provide a better values for the starting point
+ of the algorithm.
+ We should take the degree into account, thus it could converge faster.
+\end_layout
+
+\begin_layout Subsection
+Dampling factor
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex3/graphs/page_rank/d_effect.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparaison of different dampling factor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+How does the change of d affect the rank of the nodes and the absolute PageRank
+ values?
+\end_layout
+
+\begin_layout Standard
+The dampling factor 
+\begin_inset Formula $d$
+\end_inset
+
+ seems to influence the contrast between high rankgpage node value and low
+ rankpage node value.
+ If it too small, then we cannot see very weel how the node of each node
+ is with respect to the others.
+ If it is too high, then the high page rank value is kind of 
+\begin_inset Quotes eld
+\end_inset
+
+too saturated
+\begin_inset Quotes erd
+\end_inset
+
+, so you can not make a difference any more..
+\end_layout
+
+\begin_layout Subsection
+Page rank wikipedia
+\end_layout
+
+\begin_layout Paragraph
+Results
+\end_layout
+
+\begin_layout Itemize
+Highest PageRank:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+0.03519319071432259 : Graph_theory
+\end_layout
+
+\begin_layout Itemize
+0.020361350619844686 : Social_network
+\end_layout
+
+\begin_layout Itemize
+0.01677151139830182 : Mathematics
+\end_layout
+
+\begin_layout Itemize
+0.01646208363207607 : Social_network_analysis
+\end_layout
+
+\begin_layout Itemize
+0.014703296264824407 : Social_networking_service
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Highest In-degree:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+82 : Social_network
+\end_layout
+
+\begin_layout Itemize
+73 : Social_network_analysis
+\end_layout
+
+\begin_layout Itemize
+63 : Small_world_experiment
+\end_layout
+
+\begin_layout Itemize
+62 : Social_networking_service
+\end_layout
+
+\begin_layout Itemize
+62 : Orkut
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Highest Out-degree:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+140 : Network_science
+\end_layout
+
+\begin_layout Itemize
+82 : Social_network
+\end_layout
+
+\begin_layout Itemize
+73 : Social_network_analysis
+\end_layout
+
+\begin_layout Itemize
+67 : Small-world_network
+\end_layout
+
+\begin_layout Itemize
+65 : Sexual_network
+\end_layout
+
+\end_deeper
+\begin_layout Paragraph
+Comment the differences and similarities between the three lists of most
+ central pages
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Graph therory
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+Mathematics
+\begin_inset Quotes erd
+\end_inset
+
+ have a high page rank, but they suprisingly don't have belong to the tops
+ highest in-degree.
+ For example, 
+\begin_inset Quotes eld
+\end_inset
+
+social network
+\begin_inset Quotes erd
+\end_inset
+
+ is in the top three each time.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+Network science
+\begin_inset Quotes erd
+\end_inset
+
+ lead to many pages, but not there are not a lot of pages that link back
+ to it.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Quotes eld
+\end_inset
+
+social network
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+social network analysis
+\begin_inset Quotes erd
+\end_inset
+
+ have both correlated subject, that's why they have a good ranking as it
+ can improve this way.
+\end_layout
+
+\end_body
+\end_document
