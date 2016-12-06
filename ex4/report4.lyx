@@ -1,0 +1,754 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\renewcommand{\thesubsection}{\thesection. \alph{subsection})}
+\renewcommand{\thesubsubsection}{-}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+multicol
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+CS-E5740 - Complex Networks
+\begin_inset Newline newline
+\end_inset
+
+Exercise set 4
+\end_layout
+
+\begin_layout Author
+Hugues Verlin (584788)
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+hugues.verlin@aalto.fi
+\end_layout
+
+\begin_layout Section
+Weight–topology correlations in social networks
+\end_layout
+
+\begin_layout Subsection
+Plot the complementary cumulative distribution (1-CDF) for node degree 
+\begin_inset Formula $k$
+\end_inset
+
+, node strength 
+\begin_inset Formula $s$
+\end_inset
+
+ and link weight 
+\begin_inset Formula $w$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex4/graphs/ex1/a)fb_like.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+complementary cumulative distribution (1-CDF) for node degree 
+\begin_inset Formula $k$
+\end_inset
+
+, node strength 
+\begin_inset Formula $s$
+\end_inset
+
+ and link weight 
+\begin_inset Formula $w$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Briefly describe the distributions: are they Gaussian, power laws or something
+ else? 
+\end_layout
+
+\begin_layout Standard
+We can see that the distributions looks like power laws with fat tails.
+\end_layout
+
+\begin_layout Subsubsection
+Based on the plots, roughly estimate the 90th percentiles of the degree,
+ strength, and weight distributions.
+\end_layout
+
+\begin_layout Standard
+Estimates:
+\end_layout
+
+\begin_layout Itemize
+degree: 40
+\end_layout
+
+\begin_layout Itemize
+strenght: 190
+\end_layout
+
+\begin_layout Itemize
+weight distribution: 10 
+\end_layout
+
+\begin_layout Subsection
+Make a scatter plot that shows 
+\begin_inset Formula $\left\langle w\right\rangle $
+\end_inset
+
+ as a function of 
+\begin_inset Formula $k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex4/graphs/ex1/average_linklinear_fb_like.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average link weight versus degree
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex4/graphs/ex1/average_linklog_fb_like.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Average link weight versus degree
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Questions
+\end_layout
+
+\begin_layout Subsubsection
+Which of the two approaches (linear or logarithmic x-axes) suits this for
+ presenting how 
+\begin_inset Formula $\left\langle w\right\rangle $
+\end_inset
+
+ scales as a function of 
+\begin_inset Formula $k$
+\end_inset
+
+? Why?
+\end_layout
+
+\begin_layout Standard
+The log approche is better because it will show global trend way more easely.
+\end_layout
+
+\begin_layout Subsubsection
+In social networks, 
+\begin_inset Formula $\left\langle w\right\rangle $
+\end_inset
+
+ typically decreases as a function of the degree due to time constraints
+ required for taking care of social contacts.
+ Are your results in accordance with this conception? If not, how would
+ you explain your finding?
+\end_layout
+
+\begin_layout Standard
+It is not that visible on the graph.
+ There is a small decrease of the weight versus the degree at the end o
+ f the graph, but only at the very end.
+ Otherwise, the global trend is increasing.
+\end_layout
+
+\begin_layout Standard
+The network of the exercise is not an accurate social network for small
+ degree nodes: on Facebook for example is you have less than 10 friends,
+ you are not using the website that much.
+ That could explain the difference between this graph and a 
+\begin_inset Quotes eld
+\end_inset
+
+real-life
+\begin_inset Quotes erd
+\end_inset
+
+ social graph.
+\end_layout
+
+\begin_layout Subsection
+Link neighborhood overlap
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex4/graphs/ex1/overlap.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Overlap vs.
+ weight
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Is this trend in accordance with the Granovetter hypothesis? If not, how
+ would you explain your findings?
+\end_layout
+
+\begin_layout Standard
+There is an increasing trend so it supports the hypothesis.
+\end_layout
+
+\begin_layout Section
+Error and attack tolerance of networks
+\end_layout
+
+\begin_layout Subsection
+Size of the largest component for different types of attacks
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex4/graphs/ex2/attacks.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Attack tolerance of network against different attack schemes
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+For which of the four approaches is the network most and least vulnerable?
+ In other words, in which case does the giant component shrink fastest /
+ slowest? Or is this even simple to define?
+\end_layout
+
+\begin_layout Itemize
+Most vunerable: descendig order of edges betweeness centrality
+\end_layout
+
+\begin_layout Itemize
+Least vunerable: descending link weight
+\end_layout
+
+\begin_layout Standard
+But it is not that easy to define as the network is not that vunerable against
+ 
+\begin_inset Quotes eld
+\end_inset
+
+descending order of edge betweness attack
+\begin_inset Quotes erd
+\end_inset
+
+ when there is already a lot of nodes removed for example.
+\end_layout
+
+\begin_layout Subsection
+When comparing the removal of links in ascending and descending order strong
+ and weak links first, which ones are more important for the integrity of
+ the network? Why do you think this would be the case?
+\end_layout
+
+\begin_layout Standard
+The most important for the integrity of the network is the weak links first
+ as the one that have strong links have strong links between them.
+\end_layout
+
+\begin_layout Subsection
+How would you explain the difference between the random removal strategy
+ and the removal in descending order of edge betweenness strategy?
+\end_layout
+
+\begin_layout Standard
+If you attack using betweness you will remove the very important edge first,
+ whereas if you attack the network randomly, it's not likely at all that
+ you will hit an important edge at first.
+ It could be but considering the size of the network, it is very unlikely.
+\end_layout
+
+\begin_layout Section
+Network thresholding and spanning trees: the case of US air traffic
+\end_layout
+
+\begin_layout Subsection
+Network properties
+\end_layout
+
+\begin_layout Itemize
+Number of network nodes 
+\begin_inset Formula $N=279$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Number of links 
+\begin_inset Formula $L=2088$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Density 
+\begin_inset Formula $D=0.0538$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Network diameter 
+\begin_inset Formula $d=4$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Average clustering coefficient 
+\begin_inset Formula $C=0779$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Visualize the full network with all links on top of the map of USA
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex4/graphs/ex3/airports.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+ Full network with all links on top of the map of USA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\emph on
+Compute
+\emph default
+ both the maximal and minimal spanning tree (MST) of the network and visualize
+ them
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex4/graphs/ex3/airports_max_spanning_tree.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Maximum Spanning Tree
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex4/graphs/ex3/airports_min_spanning_tree.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Minimum Spanning Tree
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+If the connections of Hawai are considered, how would you explain the difference
+s between the minimal and maximal spanning trees?
+\end_layout
+
+\begin_layout Standard
+The minimum spanning tree show a great number of links to Hawai that have
+ a long distance.
+ It is because the strength of the link represents the number of flight
+ during the time period.
+ Indeed, there are not so many flight that go to Hawai from a such long
+ distance.
+ This is more likely that a flight will go to California first, and then
+ to Hawai.
+ This is what we can see using the maximum spanning tree.
+\end_layout
+
+\begin_layout Subsubsection
+If you would like to understand the overall organization of the air traffic
+ in US, would you use the minimal or maximal spanning tree? Why?
+\end_layout
+
+\begin_layout Standard
+I would use the maximum spanning tree as we can clearly see the hubs and
+ the general directions of the air traffic.
+ It is a lot more logical and meaningful.
+\end_layout
+
+\begin_layout Subsection
+Threshold and visualize the network by taking only the strongest 
+\begin_inset Formula $M$
+\end_inset
+
+ links into account, where 
+\begin_inset Formula $M$
+\end_inset
+
+ is the number of links in the MST
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename ex4/graphs/ex3/airports_threshold.pdf
+	lyxscale 30
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Threshold network with only the top 279 strongest edges
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+How many links does the thresholded network share with the maximal spanning
+ tree?
+\end_layout
+
+\begin_layout Standard
+The intersection of the sets of edges of each network gives 98.
+\end_layout
+
+\begin_layout Subsubsection
+Given this number and the visualizations, does simple thresholding yield
+ a similar network as the maximum spanning tree?
+\end_layout
+
+\begin_layout Standard
+Not exactly as only 
+\begin_inset Formula $35\%$
+\end_inset
+
+ of the edges are here in both cases.
+\end_layout
+
+\end_body
+\end_document
